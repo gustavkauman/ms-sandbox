@@ -18,6 +18,4 @@ function print_records($records, $display_name = 'display_name') {
       print("{$key}: $value\n");
     }
   }
-
-
 }
