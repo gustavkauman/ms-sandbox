@@ -1,10 +1,10 @@
 <?php
 include(__DIR__ . '/settings.php');
 
-function print_records($records, $display_name = 'display_name') {
+function print_records($records) {
   foreach ($records as $record) {
     // Pick out the header/display-name value.
-    $display_name_value = $record[$display_name];
+    $display_name_value = $record['display_name'];
 
     // Print header.
     print("\n$display_name_value\n");

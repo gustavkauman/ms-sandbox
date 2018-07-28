@@ -14,7 +14,7 @@ $function = 'search_read';
 # This MUST be an array
 
 $search_terms = array(
-    ['display_name', 'like', 'Gustav Utke']
+    ['display_name', 'like', 'Gustav Utke Kauman']
 );
 
 # Fields wanted
@@ -26,32 +26,10 @@ $fields = array(
 );
 
 # Get information from MS
+$limit = 100; $offset = 0;
 
-/*
-$models = ripcord::client($settings['endpoint_object']);
-$result = $models->execute_kw($settings['db'], $settings['uid'], $settings['password'],
-    $model, $function,
-    array($search),
-    array(
-        'fields' => array(
-            'display_name',
-            'member_number'
-        ),
-        'limit' => 100,
-        'offset' => 0,
-    )
-);
-*/
-
-$args = array(
-    'model' => $model,
-    'function' => $function,
-    'search_terms' => $search_terms,
-    'fields' => $fields
-);
-
-$search = new Search($args);
+$search = search($model, $function, $search_terms, $fields, $limit, $offset, $settings);
 
 # Print out information to terminal
-$res = $search->result;
-print_records($res);
+$display_name = 'display_name';
+print_records($search, $display_name);
