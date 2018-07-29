@@ -2,6 +2,17 @@
 include(__DIR__ . '/settings.php');
 
 function print_records($records) {
+
+  if (empty($records) === true) {
+    print("That search returned nothing but hot air...\n");
+    return;
+  }
+
+  if (is_array($records) != true) {
+    print("Error!\n");
+    return;
+  }
+
   foreach ($records as $record) {
     // Pick out the header/display-name value.
     $display_name_value = $record['display_name'];
@@ -18,4 +29,5 @@ function print_records($records) {
       print("{$key}: $value\n");
     }
   }
+  print("\n");
 }
