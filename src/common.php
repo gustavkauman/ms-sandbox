@@ -4,7 +4,7 @@ include(__DIR__ . '/settings.php');
 function print_records($records) {
 
   if (empty($records) === true) {
-    print("That search returned nothing but hot air...\n");
+    print("\nThat search returned nothing but hot air...\n\n");
     return;
   }
 
